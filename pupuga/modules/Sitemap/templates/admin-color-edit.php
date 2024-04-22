@@ -1,0 +1,1 @@
+<textarea class="pupuga-color-textarea display-none" readonly="readonly"></textarea>

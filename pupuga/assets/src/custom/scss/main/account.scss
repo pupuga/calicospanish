@@ -1,0 +1,584 @@
+@import "mixins";
+
+$border-radius: 3px;
+
+@mixin border-block($padding: rem(25px, $font-size)) {
+  box-sizing: border-box !important;
+  border: 1px solid lighten($color-purple, 40%) !important;
+  padding: $padding !important;
+}
+
+@mixin account-block-tile() {
+  font-size: rem(24px, $font-size);
+  font-weight: 300;
+  line-height: 1 !important;
+  color: $color-purple;
+  margin: 0 !important;
+  padding: 0 0 rem(16px, $font-size) 0 !important;
+}
+
+@mixin form-element-input() {
+  font-size: rem(14px, $font-size);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-line;
+  height: rem(42px, $font-size) !important;
+  border-radius: $border-radius;
+  padding-left: 0.8rem !important;
+  padding-right: 0.8rem !important;
+  margin: 0 !important;
+}
+
+@mixin button-update($background: $gradient-teal, $height: 40px) {
+  font-size: rem(16px, $font-size) !important;
+  color: white !important;
+  text-shadow: $text-shadow !important;
+  height: rem($height, $font-size) !important;
+  background: $background !important;
+  min-width: auto !important;
+  width: auto !important;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin two-block-column {
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: rem(26px, $font-size);
+  &:first-child {
+    margin-top: 0;
+  }
+  @include border-block();
+  > * {
+    box-sizing: border-box;
+    flex: 0 0 48%;
+    max-width: 48%;
+    @include media-768 {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@mixin orders-grid() {
+  font-size: rem(16px, $font-size);
+  border: none !important;
+  padding: 0 !important;
+  th, td {
+    padding: rem(12px, $font-size) rem(8px, $font-size) !important;
+    &:first-child {
+      padding-left: 0 !important;
+    }
+  }
+  th {
+    font-size: rem(14px, $font-size);
+    font-weight: bold;
+    color: $color-purple;
+    text-transform: uppercase;
+  }
+  td {
+    font-size: rem(16px, $font-size);
+    color: black;
+    p {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+  .button {
+    @include button-update($gradient-green, 36px);
+  }
+}
+
+.woocommerce_account_subscriptions,
+.woocommerce-MyAccount-content {
+  > p:first-child {
+    font-size: rem(20px, $font-size);
+    color: $color-green;
+    display: block;
+    text-align: center;
+    padding-top: 1rem;
+  }
+}
+
+.account-page {
+  .woocommerce {
+    max-width: none;
+  }
+  #billing_address_2_field,
+  #shipping_address_2_field {
+    display: none !important;
+  }
+  mark {
+    font-weight: bold !important;
+    background: transparent !important;
+  }
+  .woocommerce-order-details__title,
+  .woocommerce-column__title {
+    @include account-block-tile();
+  }
+  .woocommerce-table--order-details {
+    font-size: rem(18px, $font-size) !important;
+    border: none !important;
+    h3 {
+      font-size: rem(18px, $font-size) !important;
+      color: black !important;
+      font-weight: bold !important;
+      padding: 0 !important;
+      margin:  0 !important;
+    }
+    th, td {
+      padding: 0.6rem !important;
+      &:first-child {
+        padding-left: 0 !important;
+      }
+    }
+    tfoot {
+      tr:last-child {
+        td, th {
+          font-size: 1.5rem;
+          color: $color-purple;
+        }
+        th {
+          font-weight: bold !important;
+        }
+        td {
+          font-weight: normal !important;
+        }
+      }
+    }
+  }
+  .woocommerce-order-details {
+    header {
+      h2 {
+        @include account-block-tile();
+      }
+    }
+    .my_account_orders {
+      @include orders-grid();
+    }
+  }
+
+  .account-payment-methods-table {
+    @include orders-grid();
+    $padding: 0 rem(25px, $font-size);
+    @include border-block($padding);
+    .button {
+      height: rem(36px, $font-size) !important;
+      &.delete {
+        background: $gradient-red !important;
+      }
+    }
+
+    & + p .button,
+    & + .button {
+        color: white !important;
+        background: $gradient-purple !important;
+        &:hover {
+          opacity: 0.8;
+      }
+    }
+  }
+}
+
+.pupuga-account-header {
+  background-color: $color-blue;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 3rem;
+}
+
+.pupuga-account-hello {
+  text-align: center;
+  padding-top: rem(30px, $font-size);
+  @include media-768 {
+    padding-top: 0;
+  }
+  &__hi {
+    font-size: rem(42px, $font-size);
+    font-weight: bold;
+    color: $color-purple-dark;
+  }
+  &__bye {
+    font-size: rem(16px, $font-size);
+    color: black;
+    margin-top: rem(8px, $font-size);
+    a {
+      font-weight: bold;
+      color: black;
+      text-decoration: underline;
+      &:hover {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.pupuga-account-menu {
+  $border-width: 3px;
+  margin: 0 auto;
+  margin-top: rem(40px, $font-size) !important;
+  background-color: transparent;
+  width: 100%;
+  max-width: $max-narrow-width;
+  ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 1 194px;
+    border: $border-width/2 solid white !important;
+    border-top-width: $border-width !important;
+    border-bottom-width: 0 !important;
+    &:first-child {
+      border-left-width: $border-width !important;
+    }
+    &:last-child {
+      border-right-width: $border-width !important;
+    }
+  }
+  a {
+    box-sizing: border-box;
+    font-size: rem(18px, $font-size);
+    color: $color-purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: rem(38px, $font-size);
+    background-color: lighten($color-purple, 40%);
+    text-align: center;
+    padding: 5px 2px !important;
+    line-height: 1.2;
+    &:hover {
+      color: $color-purple-dark;
+    }
+  }
+  .is-active {
+    a {
+      font-weight: bold;
+      color: white;
+      width: 100%;
+      background-color: $color-purple;
+    }
+  }
+}
+
+.pupuga-page-account-title {
+  box-sizing: border-box;
+  font-size: rem(32px, $font-size);
+  color: $color-purple;
+  font-weight: 300;
+  width: 100%;
+  max-width: $max-narrow-width + 2 * 10px;
+  display: block;
+  margin: 0 auto;
+  padding: rem(80px, $font-size) 10px rem(16px, $font-size);
+  @include media-768 {
+    padding-top: rem(20px, $font-size);
+  }
+  i {
+    margin-right: 0.5rem;
+  }
+}
+
+.pupuga-account-content {
+  width: 100%;
+  max-width: $max-narrow-width + 2 * 10px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5rem;
+  label {
+    display: none !important;
+    & + br {
+      display: none !important;
+    }
+  }
+  input[type=text],
+  input[type=email],
+  input[type=password],
+  input[type=tel] {
+    @include form-element-input();
+  }
+  .select2-selection {
+    @include form-element-input();
+    cursor: pointer;
+    &__rendered {
+      padding-left: 0 !important;
+    }
+    &__arrow {
+      height: 100% !important;
+    }
+  }
+  header {
+    h2 {
+      @include account-block-tile();
+    }
+  }
+
+  #add_payment_method {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: rem(20px, $font-size);
+    border: 1px solid $color-purple;
+    border-radius: 3px;
+    #stripe-payment-data {
+      p {
+        /*display: none !important;*/
+      }
+    }
+    label[for=payment_method_stripe] {
+      font-size: 0 !important;
+      box-sizing: border-box;
+      display: block !important;
+      width: 100%;
+      text-align: left;
+      padding: 0 !important;
+      margin: 0 !important;
+      img {
+        text-align: left;
+        float: none !important;
+        max-width: rem(60px, $font-size) !important;
+        height: auto !important;
+        max-height: rem(38px, $font-size) !important;
+        padding-left: 0 !important;
+        margin: 0 5px 5px 0 !important;
+        @include media-480 {
+          max-width: 2.5rem !important;
+        }
+      }
+    }
+    .form-row {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .woocommerce-Payment,
+    .woocommerce-PaymentBox {
+      background: transparent !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      &:before {
+        display: none !important;
+      }
+    }
+    .woocommerce-PaymentMethod,
+    .woocommerce-PaymentMethods {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+    .wc-payment-form {
+      box-sizing: border-box;
+      width: 100%;
+      > * {
+        box-sizing: border-box;
+        padding: 0 !important;
+        margin: 0 !important;
+        &.form-row-first,
+        &.form-row-last {
+          max-width: 48%;
+        }
+        &.form-row-first {
+        }
+        &.form-row-last {
+        }
+      }
+    }
+    #stripe-card-element,
+    #stripe-exp-element,
+    #stripe-cvc-element {
+      $font-size-block: 14px;
+      box-sizing: border-box;
+      font-size: rem($font-size-block, $font-size);
+      display: flex;
+      align-items: center;
+      height: rem(42px, $font-size);
+      width: 100%;
+      border: 1px solid $color-line;
+      border-radius: 3px;
+      padding: 0 12px !important;
+      > * {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+    }
+    button {
+      margin-top: 0.5rem;
+      float: right !important;
+      width: auto !important;
+      max-width: none !important;
+      min-width: auto !important;
+      @include media-480 {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+.pupuga-edit-account {
+  &__change-main {
+    @include two-block-column();
+    .form-row {
+      padding: 0 !important;
+      margin: 0 0 rem(14px, $font-size) 0 !important;
+    }
+  }
+  &__block-title {
+    @include account-block-tile();
+  }
+  &__action {
+    flex: 1 1 100%;
+    max-width: 100%;
+    .button {
+      @include button-update();
+    }
+  }
+  &__addresses {
+    @include two-block-column();
+  }
+  &__addresses-text {
+    font-size: rem(16px, $font-size);
+    line-height: 1.2;
+  }
+  &__addresses-action {
+    margin: rem(20px, $font-size) 0;
+    .button {
+      @include button-update();
+    }
+  }
+}
+
+.pupuga-account-content h3 {
+  @include account-block-tile();
+}
+
+.pupuga-edit-account-addresses {
+  @include border-block();
+  .form-row {
+    padding: 0 !important;
+    margin-bottom: rem(14px, $font-size) !important;
+  }
+  &__action {
+    margin-top: rem(4px, $font-size) !important;
+    .button {
+      @include button-update();
+    }
+  }
+  &__fields {
+    width: 100% !important;
+    display: inline-block !important;
+  }
+  #shipping_country_field{
+    display: none !important;
+  }
+}
+
+.pupuga-account-orders {
+  @include border-block;
+  &__before-table-text {
+    p {
+      padding: 0 !important;
+      margin: 0 !important;
+      line-height: 1 !important;
+    }
+  }
+  &__main-table {
+    @include orders-grid();
+    margin-top: rem(22px, $font-size) !important;
+  }
+}
+
+.shop_table {
+  border-radius: 0 !important;
+  &.subscription_details {
+    @include orders-grid();
+    $padding: 0 rem(25px, $font-size);
+    @include border-block($padding);
+    margin-bottom: 2rem !important;
+    .button {
+      display: inline-flex !important;
+      &.cancel {
+        background: $gradient-red !important;
+      }
+      & + br {
+        display: none !important;
+      }
+    }
+    & + h2 {
+      display: none !important;
+      & + .order_details {
+        display: none !important;
+      }
+    }
+  }
+  &.my_account_orders {
+    @include orders-grid();
+    &:not(.pupuga-account-orders__main-table) {
+      $padding: 0 rem(25px, $font-size);
+      @include border-block($padding);
+    }
+    & + .woocommerce-customer-details {
+      margin-top: 2rem;
+    }
+  }
+}
+
+.pupuga-status {
+  $status-active-color: $color-green;
+  $status-canceled-color: $color-disable;
+  &--active {
+    color: $status-active-color !important;
+  }
+  &--cancelled {
+    color: $status-canceled-color !important;
+  }
+}
+
+.pupuga-plan-proposition {
+  margin: 0.5rem 0;
+  &__item {
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 0.5rem;
+    @include media-480 {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  &__button {
+    color: white !important;
+    font-weight: normal !important;
+    background: $plan-default-color !important;
+    @include media-480 {
+      width: 100%;
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+    &--monthly {
+      background: $plan-monthly-color !important;
+    }
+    &--yearly {
+      background: $plan-early-color !important;
+    }
+  }
+  &__salary {
+    font-weight: bold !important;
+  }
+}

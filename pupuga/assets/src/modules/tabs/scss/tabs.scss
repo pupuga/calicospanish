@@ -1,0 +1,21 @@
+.block-module-tabs {
+  &__titles {
+    display: flex;
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+  }
+  &__title {
+    flex: 1;
+  }
+  &__text {
+    display: none;
+    flex-wrap: wrap;
+    > * {
+      flex: 1 0 100%;
+    }
+    &--active {
+      display: flex;
+    }
+  }
+}

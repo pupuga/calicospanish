@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "../../../../modules/mixins/mixins";
+@import "../../../../custom/scss/config";
+@import "config";
+@import '../../../../../../modules/Doc/assets/scss/admin';
+
+@include base-light();
+
+.carbon-grid {
+  .carbon-field.carbon-field--half {
+    flex: 0 0 50%;
+  }
+  .carbon-field.carbon-field--one-fifth {
+    flex: 0 0 20%;
+  }
+  .carbon-field.carbon-field--four-fifth {
+    flex: 0 0 80%;
+  }
+}
+
+.carbon-attachment {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+table.media {
+  .column-title {
+    .media-icon {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

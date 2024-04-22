@@ -1,0 +1,128 @@
+@import "../../modules/font-awesome/css/font-awesome.css";
+@import "config";
+@import "../../modules/mixins/mixins";
+
+@include body($max-width, $font-size, $font-family);
+@include base-light($max-width, $font-family);
+
+h4 {
+  margin-top: 0;
+}
+
+.amp-general {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding: 0 $padding-skeleton 2em $padding-skeleton;
+}
+
+.amp-general__header {
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.2em 0;
+  background: $color-light;
+  border-bottom: 1px solid $color;
+}
+
+.amp-general__footer {
+  background-color: $color;
+  text-align: center;
+  color: $color-light;
+  padding: 2em $padding-skeleton;
+}
+
+.amp-wrapper {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $max-width;
+  &--main {
+    margin-top: 2em;
+  }
+}
+
+amp-img,
+.amp-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0;
+  &--logo {
+    $width: 40;
+    max-height: $width + px;
+    max-width: (1.793 * $width) + px;
+  }
+  &--thumbnail {
+    display: block;
+    margin: 0 auto 2em;
+  }
+}
+
+.amp-title {
+  margin-bottom: 1.2em;
+}
+
+.amp-content {
+  margin-top: 1em;
+  text-align: left;
+}
+
+.amp-general__article {
+  padding-bottom: 2em;
+  border-bottom: 2px solid lightgray;
+}
+
+.amp-general__articles {
+  padding-top: 2em;
+  text-align: left;
+}
+
+.amp-items {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.amp-item {
+  $image-width: 60%;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 1em 0;
+  color: $color;
+  &:hover {
+    text-decoration: underline;
+  }
+  &__title {
+    width: $image-width;
+    padding: 0 1em;
+  }
+  &__image {
+    width: 100% - $image-width;
+  }
+}
+
+.amp-button {
+  background-color: $color-button;
+  padding: 0.4em 0.8em;
+  border-radius: 0.5em;
+  color: $color-light;
+  display: inline-block;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.15);
+  &:after {
+    content: "\f178";
+    vertical-align: middle;
+    margin-left: 0.5em;
+    font-family: FontAwesome;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

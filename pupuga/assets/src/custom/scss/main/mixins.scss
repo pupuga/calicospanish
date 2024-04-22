@@ -1,0 +1,295 @@
+@import "../../../modules/mixins/mixins";
+@import "../../../custom/scss/config";
+
+@mixin title-h2-h3() {
+  text-align: center;
+  h1, h2 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: $color-purple-dark;
+    padding: 0;
+    margin: 0.3em 0 0 0;
+    @include media(1024) {
+      font-size: 2rem;
+    }
+  }
+  h1 + h2,
+  h3 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: black;
+    padding: 0;
+    margin: 0.3em 0 0 0;
+    @include media(1024) {
+      font-size: 1.6rem;
+    }
+    + h3 {
+      margin-top: 0.1em;
+    }
+  }
+}
+
+@mixin title-h1-h2() {
+  text-align: center;
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.15;
+    color: $color-purple-dark;
+    padding: 0;
+    margin: 0.3em 0 0 0;
+    @include media(1024) {
+      font-size: 2rem;
+    }
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: black;
+    padding: 0;
+    margin: 0.3em 0 0 0;
+    @include media(1024) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@mixin title-h2 {
+  text-align: center;
+  h1, h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: black;
+    padding: 0;
+    margin: 0;
+    @include media(1024) {
+      font-size: 2rem;
+    }
+  }
+}
+
+@mixin title-h3 {
+  text-align: center;
+  h3 {
+    font-size: em(30px, $font-size);
+    font-weight: 300;
+    color: $color-purple-dark;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@mixin title-h4 {
+  text-align: center;
+  h4 {
+    font-size: em(24px, $font-size);
+    font-weight: bold;
+    color: $color-purple-dark;
+    padding: em(5px, $font-size) 0 em(10px, $font-size) 0;
+    margin: 0;
+  }
+}
+
+@mixin p-normal {
+  font-size: em(20px, $font-size);
+  line-height: 1.2;
+}
+
+@mixin p-bigger {
+  font-size: em(18px, $font-size);
+}
+
+@mixin p-larger {
+  font-size: em(24px, $font-size);
+  @include media-1024 {
+    font-size: 1.4em;
+    line-height: 1.4;
+  }
+}
+
+@mixin styling-list($color) {
+  ul {
+    list-style: none;
+    color: black;
+    font-size: em(18px, $font-size);
+    li {
+      position: relative;
+      padding-left: 2em;
+      margin-top: 1.4em;
+      line-height: 1.2;
+      &:before {
+        content: "\f138";
+        font-family: FontAwesome;
+        font-size: 1em;
+        color: $color;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        z-index: 1;
+        margin-top: -0.5em;
+      }
+    }
+  }
+}
+
+@mixin color-level {
+  &--level-a {
+    color: $color-level-a;
+  }
+  &--level-b {
+    color: $color-level-b;
+  }
+  &--level-c {
+    color: $color-level-c;
+  }
+  &--level-d {
+    color: $color-level-d;
+  }
+}
+
+@mixin border-color-level($kinds: top right bottom left) {
+  @each $kind in $kinds {
+    &--level-a {
+      border-#{$kind}-color: $color-level-a;
+    }
+    &--level-b {
+      border-#{$kind}-color: $color-level-b;
+    }
+    &--level-c {
+      border-#{$kind}-color: $color-level-c;
+    }
+    &--level-d {
+      border-#{$kind}-color: $color-level-d;
+    }
+  }
+}
+
+@mixin color-level-fill {
+  &--level-a {
+    fill: $color-level-a;
+  }
+  &--level-b {
+    fill: $color-level-b;
+  }
+  &--level-c {
+    fill: $color-level-c;
+  }
+  &--level-d {
+    fill: $color-level-d;
+  }
+}
+
+@mixin color-level-background() {
+  &--level-a {
+    background-color: $color-level-a;
+  }
+  &--level-b {
+    background-color: $color-level-b;
+  }
+  &--level-c {
+    background-color: $color-level-c;
+  }
+  &--level-d {
+    background-color: $color-level-d;
+  }
+}
+
+@mixin color-level-li-before() {
+  &--level-a {
+    li {
+      &:before {
+        color: $color-level-a;
+      }
+    }
+  }
+  &--level-b {
+    li {
+      &:before {
+        color: $color-level-b;
+      }
+    }
+  }
+  &--level-c {
+    li {
+      &:before {
+        color: $color-level-c;
+      }
+    }
+  }
+  &--level-d {
+    li {
+      &:before {
+        color: $color-level-d;
+      }
+    }
+  }
+}
+
+@mixin color-level-h() {
+  &--level-a {
+    h1, h2, h3, h4 , h5, h6 {
+      color: $color-level-a;
+    }
+  }
+  &--level-b {
+    h1, h2, h3, h4 , h5, h6 {
+      color: $color-level-b;
+    }
+  }
+  &--level-c {
+    h1, h2, h3, h4 , h5, h6 {
+      color: $color-level-c;
+    }
+  }
+  &--level-d {
+    h1, h2, h3, h4 , h5, h6 {
+      color: $color-level-d;
+    }
+  }
+}
+
+@mixin color-level-strong() {
+  &--level-a {
+    strong, b {
+      color: $color-level-a;
+    }
+  }
+  &--level-b {
+    strong, b {
+      color: $color-level-b;
+    }
+  }
+  &--level-c {
+    strong, b {
+      color: $color-level-c;
+    }
+  }
+  &--level-d {
+    strong, b {
+      color: $color-level-d;
+    }
+  }
+}
+
+@mixin color-level-em() {
+  &--level-a {
+    em, i {
+      color: $color-level-a;
+    }
+  }
+  &--level-b {
+    em, i {
+      color: $color-level-b;
+    }
+  }
+  &--level-c {
+    em, i {
+      color: $color-level-c;
+    }
+  }
+  &--level-d {
+    em, i {
+      color: $color-level-d;
+    }
+  }
+}

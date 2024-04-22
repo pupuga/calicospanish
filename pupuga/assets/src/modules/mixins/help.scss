@@ -1,0 +1,30 @@
+@mixin browsers($property, $parameters) {
+  -webkit-#{$property}: $parameters;
+  -moz-#{$property}: $parameters;
+  -ms-#{$property}: $parameters;
+  #{$property}: $parameters;
+}
+
+@mixin placeholder($property, $parameters) {
+  &::-webkit-input-placeholder {
+    #{$property}: $parameters;
+  }
+  &:-moz-placeholder {
+    #{$property}: $parameters;
+  }
+  &::-moz-placeholder {
+    #{$property}: $parameters;
+  }
+  &:-ms-input-placeholder {
+    #{$property}: $parameters;
+  }
+}
+
+@mixin width-list($width-list) {
+  @each $width in $width-list {
+    $i: index($width-list, $width);
+    &:nth-child(#{$i}) {
+      width: $width;
+    }
+  }
+}

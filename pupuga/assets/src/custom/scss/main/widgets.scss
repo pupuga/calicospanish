@@ -1,0 +1,45 @@
+@import "blog-mixins";
+
+$block-font-size: 14px;
+
+.general__sidebar {
+  .wrapper-widget {
+    > * {
+      padding: 0 rem(20px, $font-size);
+      h3 {
+        @include sidebar-title();
+      }
+      @include sidebar-list();
+    }
+  }
+
+  .pupuga-cloud {
+    box-sizing: border-box;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    margin: 0;
+    padding: 0 0 2rem 0;
+    .pupuga-cloud__item {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .pupuga-cloud__link {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      height: rem(40px, $font-size);
+      padding: 0 rem(15px, $font-size);
+      margin: 0 rem(5px, $font-size) rem(10px, $font-size) 0;
+      border: 1px solid #68c9c9;
+      background-color: white;
+      color: black;
+      &:hover {
+        color: #68c9c9;
+      }
+    }
+  }
+
+}

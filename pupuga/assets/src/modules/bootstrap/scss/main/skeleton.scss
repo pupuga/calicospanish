@@ -1,0 +1,106 @@
+@import "../../../../modules/mixins/mixins";
+@import "../../../../custom/scss/config";
+
+@include body($max-width, $font-size, $font-family);
+@include base($font-family, $media-points);
+
+.general {
+  flex: 1 0 auto;
+}
+
+.general__simple{
+  @include flex-skeleton();
+  flex: 1;
+}
+
+.general__page-with-sidebar {
+  @include flex-skeleton();
+  flex-flow: wrap;
+  flex: 1;
+}
+
+.general__header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 50;
+}
+
+.general__main {
+  width: 100%;
+}
+
+.general__footer {
+  flex: 0 0 auto;
+}
+
+%blocks-line {
+  display: flex;
+  flex-direction: row !important;
+  box-sizing: border-box;
+  width: 100%;
+  > * {
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+
+.block-inline {
+  @extend %blocks-line;
+  > * {
+    flex: 1 0 auto;
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
+}
+
+.block-inline-center {
+  @extend .block-inline;
+  align-items: center;
+  @include media-768 {
+    flex-direction: column !important;
+  }
+  > * {
+    @include media-768 {
+      align-self: center !important;
+      flex: 1 1 100% !important;
+      text-align: center !important;
+    }
+  }
+}
+
+.block-columns {
+  @extend %blocks-line;
+  justify-content: space-between;
+  > * {
+    box-sizing: border-box;
+    flex: 1 100%;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  &__left {
+    text-align: left;
+    @include media-768() {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &__right {
+    text-align: right;
+    @include media-768() {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

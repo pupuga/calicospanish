@@ -1,0 +1,1 @@
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="<?php echo $params['correct_url'] ?>" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>

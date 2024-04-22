@@ -1,0 +1,62 @@
+$media-points: 1024 768 480 320;
+
+$max-long-width: 1240px;
+$max-width: 1170px;
+$max-narrow-width: 1024px;
+$max-shrink-width: 860px;
+$padding: 10px;
+$font-size: 16px;
+$font-family: 'Source Sans Pro', sans-serif;
+
+$main-color: #a0cd3d;
+$color-disable: #acacac;
+$color-line: #b7b7b7;
+$color-light-line: #ebebeb;
+$color-input-border: #cccccc;
+$color-blue: #d2f0f0;
+$color-purple: #7c658f;
+$color-purple-dark: #482d8b;
+$color-red: #f05759;
+$color-teal: #68c9c9;
+$color-green: #9fcc3f;
+$color-orange: #f68e59;
+$color-yellow: #fad358;
+$color-gray: #a0a0a0;
+$color-light-purple: lighten($color-purple, 5%);
+$color-light-purple-dark: lighten($color-purple-dark, 5%);
+$color-light-red: lighten($color-red, 5%);
+$color-light-teal: lighten($color-teal, 5%);
+$color-light-green: lighten($color-green, 5%);
+$color-light-yellow: lighten($color-yellow, 5%);
+$color-light-orange: lighten($color-orange, 5%);
+$color-light-gray: lighten($color-gray, 5%);
+$gradient-purple: linear-gradient(to bottom, $color-light-purple 0%, $color-purple 100%);
+$gradient-purple-dark: linear-gradient(to bottom, $color-light-purple-dark 0%, $color-purple-dark 100%);
+$gradient-red: linear-gradient(to bottom, $color-light-red 0%, $color-red 100%);
+$gradient-teal: linear-gradient(to bottom, $color-light-teal 0%, $color-teal 100%);
+$gradient-green: linear-gradient(to bottom, $color-light-green 0%, $color-green 100%);
+$gradient-yellow: linear-gradient(to bottom, $color-light-yellow 0%, $color-yellow 100%);
+$gradient-orange: linear-gradient(to bottom, $color-light-orange 0%, $color-orange 100%);
+$gradient-gray: linear-gradient(to bottom, $color-light-gray 0%, $color-gray 100%);
+
+$color-level-a: $color-green;
+$color-level-b: $color-teal;
+$color-level-c: $color-red;
+$color-level-d: $color-yellow;
+$color-resources: $color-purple;
+$gradient-level-a: $gradient-green;
+$gradient-level-b: $gradient-teal;
+$gradient-level-c: $gradient-red;
+$gradient-level-d: $gradient-yellow;
+$gradient-sources: $gradient-purple;
+
+$plan-free-color: $color-red;
+$plan-free-gradient: $gradient-red;
+$plan-default-color: $color-red;
+$plan-monthly-color: $color-green;
+$plan-monthly-gradient: $gradient-green;
+$plan-early-color: $color-teal;
+$plan-early-gradient: $gradient-teal;
+
+$box-shadow: 2px 2px 5px 0 rgba(50, 50, 50, 0.5);
+$text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);

@@ -1,0 +1,243 @@
+@import "mixins";
+
+$plan-common-color: $color-green;
+$plan-free-color: $color-red;
+$plan-best-color: $color-teal;
+$plan-common-gradient-color: $gradient-green;
+$plan-free-gradient-color: $gradient-red;
+$plan-best-gradient-color: $gradient-teal;
+$plan-best-title-height: 24px;
+$plan-best-border-width: 4px;
+
+.pupuga-plans {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: rem(40px, $font-size);
+  padding-bottom: rem(20px, $font-size);
+  @include media-768 {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  &--with-secure {
+    padding-bottom: rem(20px, $font-size);
+  }
+}
+
+.pupuga-plan {
+  flex: 1 1 100%;
+  max-width: 300px;
+  border: 1px solid $plan-common-color;
+  margin: 0.5rem;
+  @include media-768 {
+    max-width: 70% !important;
+    min-width: 300px !important;
+    margin: 0.5rem 0 !important;
+  }
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  &--free {
+    border-color: $plan-free-color;
+  }
+  &--best {
+    border-width: 3px;
+    border-color: $plan-best-color;
+    padding-bottom: $plan-best-title-height - $plan-best-border-width/2;
+  }
+  &__bottom {
+    border-top: 1px solid $plan-common-color;
+    &--free {
+      border-top-color: $plan-free-color;
+    }
+    &--best {
+      border-top-color: $plan-best-color;
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    height: $plan-best-title-height;
+    background-color: $plan-best-color;
+    position: relative;
+    z-index: 2;
+    top: -$plan-best-border-width/2;
+  }
+  &__action {
+    padding-top: 35px;
+    padding-bottom: 28px;
+  }
+  &__action-before-text {
+    font-size: 20px;
+    font-weight: 300;
+  }
+  &__action-period {
+    font-size: 36px;
+    font-weight: 300;
+    color: $plan-common-color;
+    margin-top: 5px;
+    padding: 0 1em;
+    &--free {
+      color: $plan-free-color;
+    }
+    &--best {
+      color: $plan-best-color;
+    }
+  }
+  &__submit {
+    margin-top: 15px;
+  }
+  &__button {
+    @include button();
+    min-width: auto !important;
+    max-width: 166px !important;
+    width: 100% !important;
+    height: 44px !important;
+    background: $plan-common-gradient-color;
+    color: white !important;
+    border: none !important;
+    &:hover {
+      opacity: 0.8;
+    }
+    &--free {
+      background: $plan-free-gradient-color;
+    }
+    &--best {
+      background: $plan-best-gradient-color;
+    }
+  }
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  &__price-amount {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &__price-period {
+    font-size: 28px;
+    font-weight: 300;
+  }
+  &__price-after-text {
+    flex: 0 0 100%;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+.secure-checkout {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: rem(20px, $font-size);
+  margin-bottom: rem(20px, $font-size);
+  p {
+    font-size: 14px !important;
+    @include media-768 {
+      font-size: 12px !important;
+    }
+  }
+  a {
+    font-weight: bold;
+    color: black;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  &__row {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 0;
+    &:last-child {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.start-account {
+  $start-color: $color-red;
+  $account-color: $color-teal;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  @include media-768 {
+    flex-wrap: wrap;
+  }
+  > * {
+    box-sizing: border-box;
+    flex: 0 0 48%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid;
+    padding: 2rem 3rem;
+    margin-bottom: 1rem;
+    @include media-768 {
+      flex: 0 0 100%;
+    }
+    @include media-480 {
+      padding: 1rem;
+    }
+  }
+  &__start {
+    border-color: $start-color;
+    > * {
+      flex: 0 0 100%;
+    }
+  }
+  &__account {
+    border-color: $account-color;
+    > * {
+      flex: 0 0 100%;
+    }
+  }
+  &__title {
+    h3 {
+      font-size: rem(36px, $font-size) !important;
+      font-weight: bold !important;
+      line-height: 1 !important;
+    }
+    &--start {
+      h3 {
+        color: $start-color !important;
+      }
+    }
+    &--account {
+      h3 {
+        color: $account-color !important;
+      }
+    }
+  }
+  &__text {
+    padding-top: rem(20px, $font-size);
+    p {
+      font-size: rem(18px, $font-size);
+      line-height: 1.2;
+    }
+  }
+  &__action {
+    align-self: flex-end;
+    margin-top: rem(20px, $font-size);
+    .button {
+      min-width: rem(170px, $font-size) !important;
+    }
+  }
+}

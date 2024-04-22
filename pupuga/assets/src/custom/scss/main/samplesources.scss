@@ -1,0 +1,57 @@
+@import "mixins";
+
+.sample-sources {
+  display: flex;
+  align-items: center;
+  min-width: rem(760px, $font-size);
+  & > * {
+    box-sizing: border-box;
+    padding: 1rem;
+  }
+  &__media {
+    img {
+      max-width: 100%;
+      max-height: rem(320px, $font-size);
+    }
+    @include media-480 {
+      display: none;
+    }
+  }
+  &__message {
+    color: $color-green;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  &__form {
+    max-width: rem(500px, $font-size);
+    text-align: center;
+    .button {
+      width: 100%;
+      height: rem(48px, $font-size);
+      min-width: auto !important;
+    }
+  }
+  &__field {
+    font-size: rem(16px, $font-size);
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #c9d7dd;
+    border-radius: 3px;
+    padding: rem(12px, $font-size);
+    margin-bottom: 1rem;
+    &--error {
+      border-color: $color-red;
+    }
+  }
+  &__top-text {
+      font-size: 2rem;
+      font-weight: bold;
+      padding-bottom: 2rem;
+  }
+  &__bottom-text {
+    color: grey;
+    p {
+      color: inherit;
+    }
+  }
+}

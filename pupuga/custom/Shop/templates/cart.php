@@ -1,0 +1,1 @@
+<a class="cart-contents" href="<?php echo wc_get_cart_url() ?>" title="<?php _e('View your shopping cart'); ?>"><span class="total-cart-price"><?php echo intval(WC()->cart->get_cart_contents_count()) ?></span></a>

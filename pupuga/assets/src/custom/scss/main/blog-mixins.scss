@@ -1,0 +1,126 @@
+@import "mixins";
+
+@mixin sidebar-title($title-color: #482d8b, $font-size: 24px) {
+  margin: 0;
+  padding: rem(38px, $font-size) 0 rem(36px, $font-size) 0;
+  color: $title-color;
+  font-size: $font-size;
+  font-weight: bold;
+  line-height: 1;
+}
+
+@mixin sidebar-list($block-font-size: 14px, $link-color: black, $font-weight: bold, $color-helper: #7c658f) {
+  .pupuga-list-tree {
+    box-sizing: border-box;
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 $block-font-size 0;
+    width: 100%;
+    ul {
+      padding: 0 rem(20px, $font-size);
+    }
+    li {
+      font-size: $block-font-size;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid #cccccc;
+      ul {
+        display: none;
+      }
+      &.current {
+        & > a {
+          &:before {
+            content: "\f107";
+          }
+        }
+        ul {
+          display: block;
+          width: 100%;
+          a {
+            font-weight: normal;
+          }
+        }
+      }
+    }
+    a {
+      color: $link-color;
+      font-weight: $font-weight;
+      display: inline-block;
+      box-sizing: border-box;
+      padding: 14px 0;
+      &:before {
+        content: "\f105";
+        font-family: FontAwesome;
+        margin-right: 5px;
+        color: $color-helper;
+      }
+      &:hover {
+        opacity: 0.7;
+      }
+
+    }
+    span {
+      color: $color-helper;
+    }
+  }
+}
+
+@mixin line-items($block-color) {
+  ul {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+  }
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    &:last-child {
+      a {
+        &:after {
+          content: "";
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  a {
+    color: $block-color;
+    &:after {
+      content: ",";
+      padding-right: 4px;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin line-list($block-font-size: 14px, $block-color: #898989) {
+  .pupuga-line-list {
+    padding: 0 4px;
+    &__title {
+      font-size: $block-font-size;
+      font-weight: bold;
+      color: $block-color;
+      font-style: italic;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    &__items {
+      font-size: $block-font-size;
+      display: inline-block;
+      box-sizing: border-box;
+      @include line-items($block-color);
+    }
+  }
+}
+

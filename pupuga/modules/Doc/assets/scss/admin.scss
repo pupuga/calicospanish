@@ -1,0 +1,94 @@
+@import '../../../../assets/src/modules/bootstrap/scss/admin/config';
+
+.pupuga-title--module-doc {
+  margin-top: 0 !important;
+  vertical-align: middle;
+}
+
+.expand__link-all {
+  vertical-align: middle !important;
+}
+
+.module-doc {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+
+  &__item {
+    border: 1px solid silver;
+    background: white;
+    margin-top: 0.5em;
+    padding: 0 1em;
+  }
+
+  &__header {
+    padding: 1em 0;
+    cursor: pointer;
+  }
+
+  &__description {
+    padding-top: 0.3em;
+  }
+
+  &__body {
+    border-top: 1px solid lightgray;
+    padding: 1em 0;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-size: 0.8em;
+  }
+
+  p {
+    margin: 0.3em 0 0 0;
+    font-size: 1em;
+    line-height: 1.4em;
+  }
+
+  ul {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0.8em 0 0.8em 0.5em;
+    li {
+      padding: 0 0 0 0.8em;
+      position: relative;
+      z-index: 1;
+      margin-top: 0 !important;
+      font-size: 1em;
+      font-family: $font-family;
+      line-height: 1.4em;
+      &:before {
+        content: "\f0da";
+        font-family: FontAwesome;
+        font-size: 1em;
+        color: $main-admin-color;
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 0.5em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+

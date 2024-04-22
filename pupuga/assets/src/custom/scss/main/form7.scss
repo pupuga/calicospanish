@@ -1,0 +1,68 @@
+@import "../../../custom/scss/config";
+@import "mixins";
+
+%input {
+  font-size: rem(14px, $font-size);
+  display: flex;
+  box-sizing: border-box;
+  border: 1px solid $color-line;
+  width: 100%;
+  font-family: $font-family;
+  padding: rem(11px, $font-size) rem(17px, $font-size);
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.block-contact-form {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    @extend %input;
+  }
+
+  input[type="submit"] {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 2em;
+    @include media-480 {
+      width: 100%;
+      max-width: 300px;
+      display: flex !important;
+    }
+  }
+
+  textarea {
+    @extend %input;
+  }
+
+  .form-row {
+    display: block;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  .ajax-loader {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -8px !important;
+  }
+
+  .wpcf7-not-valid-tip {
+    font-size: rem(14px, $font-size);
+    margin-top: 0.2em;
+  }
+
+  .wpcf7-response-output {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+    margin: 0;
+  }
+}
+

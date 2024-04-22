@@ -1,0 +1,1 @@
+[iframe width='550' height='315' src='<?php echo $params['resources']->url ?>?autoplay=1&loop=0&autopause=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen][/iframe]

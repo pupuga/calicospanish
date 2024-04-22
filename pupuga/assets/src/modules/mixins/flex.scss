@@ -1,0 +1,63 @@
+@mixin flex-media-row-to-column($media) {
+  @media only screen and (max-width: $media + px) {
+    flex-direction: column;
+  }
+}
+
+@mixin flex-skeleton($max-width: 0, $side-width: 10px) {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  @if $max-width > 0 {
+    max-width: $max-width + $side-width * 2;
+    padding-left: $side-width;
+    padding-right: $side-width;
+  }
+  margin: 0 auto;
+}
+
+@mixin flex-two-column-generator($width-list, $flex-class-name: blocks, $flex-child-class-name: blocks__row--half) {
+  @each $width-one in $width-list {
+
+    $width-other: 100 - $width-one;
+    $width-one-percent: $width-one * 1%;
+    $width-other-percent: $width-other * 1%;
+
+    &.#{$flex-class-name}-#{$width-one}-#{$width-other} {
+      .blocks__row--half {
+        flex: 1 0 $width-one-percent;
+        max-width: $width-one-percent;
+        & + .blocks__row--half {
+          flex: 1 0 $width-other-percent;
+          max-width: $width-other-percent;
+        }
+      }
+    }
+    &.blocks-#{$width-other}-#{$width-one} {
+      > .blocks__row--half {
+        flex: 1 0 $width-other-percent;
+        max-width: $width-other-percent;
+        & + .blocks__row--half {
+          flex: 1 0 $width-one-percent;
+          max-width: $width-one-percent;
+        }
+      }
+    }
+  }
+}
+
+@mixin flex-center($centerY: center, $centerX: center) {
+  display: flex;
+  justify-content: $centerX;
+  align-items: $centerY;
+}
+
+@mixin flex-inline-center($centerY: center, $centerX: center) {
+  display: inline-flex;
+  justify-content: $centerX;
+  align-items: $centerY;
+}
+
+
+
+

@@ -1,0 +1,10 @@
+@import "decoration";
+@import "form7";
+@import "modal";
+
+.general__header,
+.general__footer,
+.general__main,
+.general__sidebar {
+  display: block;
+}

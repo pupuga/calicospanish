@@ -1,0 +1,90 @@
+@import "mixins";
+
+.controls-prev-next {
+  $font-size-block: 16px;
+  font-size: rem($font-size-block, $font-size);
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  padding: 0;
+  margin-top: em(15px, $font-size-block);
+  &__preview {
+    font-weight: bold;
+    flex: 1 1 50%;
+    text-align: left;
+  }
+  &__prev-next {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1 1 50%;
+  }
+  &__control {
+    cursor: pointer;
+    color: #737373;
+    &:hover {
+      color: black;
+    }
+    &--prev {
+    }
+    &--next {
+      margin-left: 2rem;
+    }
+  }
+  &__icon {
+    font-size: em(14px, $font-size-block);
+    &--prev {
+      margin-right: 0.2em;
+    }
+    &--next {
+      margin-left: 0.2em;
+    }
+  }
+}
+
+.days-tabs {
+  $font-size-block: 16px;
+  font-size: rem($font-size-block, $font-size);
+  line-height: 1;
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    padding: 0 em(16px, $font-size-block);
+    margin: em(32px, $font-size-block) em(-16px, $font-size-block) 0 em(-16px, $font-size-block);
+    border-bottom: 1px solid $color-line;
+  }
+
+  &__item {
+    cursor: pointer;
+    font-size: em(16px, $font-size-block);
+    font-weight: bold;
+    color: #959595;
+    line-height: 1.16;
+    text-align: center;
+    flex: 1 1 100%;
+    padding: em(4px, $font-size-block) 2px;
+    background-color: #ebebeb;
+    border-radius: 5px 5px 0 0;
+    border-top: 1px solid $color-line;
+    border-right: 1px solid $color-line;
+    @include media-480 {
+      font-weight: normal;
+    }
+    &:first-child {
+      border-left: 1px solid $color-line;
+    }
+    &--active {
+      background-color: white;
+    }
+    @include color-level();
+    &:hover {
+      color: black
+    }
+  }
+
+  &__prev-next {
+    width: 100%;
+    display: flex;
+  }
+}

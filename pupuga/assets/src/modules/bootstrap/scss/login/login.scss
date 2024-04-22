@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "../../../../modules/mixins/mixins";
+@import "../../../../custom/scss/config";
+
+.login h1 a {
+  width: 100%;
+  background-size: contain;
+}
+
+input[type="submit"] {
+  $main-color: null !default;
+  @if $main-color != null {
+    background: $main-color !important;
+    border-color: $main-color !important;
+  }
+}
+
+input[type="submit"]:hover {
+  opacity: 0.8;
+}
+
+a, input {
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}

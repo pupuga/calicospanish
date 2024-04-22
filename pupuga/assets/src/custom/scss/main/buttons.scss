@@ -1,0 +1,171 @@
+@import "../../../modules/mixins/mixins";
+@import "../../../custom/scss/config";
+
+$border-thickness: 2px;
+$border-radius: 3px;
+$border-color-default: #808080;
+$label-color-default: #000000;
+
+@mixin padding($border-thickness, $vertical, $horizontal) {
+  padding: em($vertical - $border-thickness, $font-size) em($horizontal - $border-thickness, $font-size) !important;
+}
+
+@mixin button-without-border($color: white) {
+  border: none;
+  color: white !important;
+  text-decoration: none !important;
+  &:before,
+  &:after {
+    content: '';
+    height: $border-thickness;
+    flex: 0 0 100%;
+    display: inline-block;
+  }
+  &:hover {
+    background: lighten($color, 10%) !important;
+    border-color: lighten($color, 10%);
+  }
+}
+
+@mixin button() {
+  display: inline-flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  vertical-align: top;
+  box-sizing: border-box;
+  background: white;
+  line-height: 1;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: bold;
+  color: $label-color-default;
+  border-radius: $border-radius;
+  overflow: hidden;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.25);
+  &:hover {
+    border-color: lighten($border-color-default, 10%) !important;
+    color: lighten($label-color-default, 40%);
+  }
+  i {
+    font-size: 1em !important;
+  }
+  &--little {
+    font-size: 0.9rem;
+    font-weight: normal;
+    min-width: rem(120px, $font-size);
+    padding: 0.4em;
+  }
+  &--middle {
+    font-size: 1.4rem;
+    font-weight: normal;
+    min-width: 12rem;
+  }
+  &--big {
+    font-size: 1.6rem;
+    font-weight: normal;
+    min-width: 15rem;
+    @include media-1024 {
+      font-size: 1.4rem;
+      @include padding($border-thickness, 14px, 14px);
+    }
+  }
+}
+
+.button-wrapper {
+  @include button();
+  > a {
+    @include padding($border-thickness, 16.5px, 22px);
+    border: $border-thickness solid #808080;
+    color: inherit;
+    border-radius: $border-radius;
+    &:before,
+    &:after {
+      display: none !important;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+  &--purple {
+    > a {
+      background: $gradient-purple !important;
+      @include button-without-border($color-purple);
+    }
+  }
+  &--red {
+    > a {
+      background: $gradient-red !important;
+      @include button-without-border($color-red);
+    }
+  }
+  &--teal {
+    > a {
+      background: $gradient-teal !important;
+      @include button-without-border($color-teal);
+    }
+  }
+  &--green {
+    > a {
+      background: $gradient-green !important;
+      @include button-without-border($color-green);
+    }
+  }
+  &--orange {
+    > a {
+      background: $gradient-orange !important;
+      @include button-without-border($color-orange);
+    }
+  }
+}
+
+.button {
+  outline: none !important;
+  @include padding($border-thickness, 14px, 22px);
+  @include button();
+  min-width: rem(180px, $font-size);
+  border: $border-thickness solid $border-color-default;
+  text-shadow: $text-shadow;
+  @include media-768 {
+    min-width: 300px !important;
+    max-width: 400px;
+    box-sizing: border-box;
+  }
+  @include media-480 {
+    min-width: auto !important;
+    max-width: 100%;
+  }
+  > * {
+    margin: 0 0.2em !important;
+  }
+  &--purple {
+    background: $gradient-purple !important;
+    @include button-without-border($color-purple);
+  }
+  &--red {
+    background: $gradient-red !important;
+    @include button-without-border($color-red);
+  }
+  &--teal {
+    background: $gradient-teal !important;
+    @include button-without-border($color-teal);
+  }
+  &--green {
+    background: $gradient-green !important;
+    @include button-without-border($color-green);
+  }
+  &--orange {
+    background: $gradient-orange !important;
+    @include button-without-border($color-orange);
+  }
+  &--view,
+  &--download,
+  &--buy,
+  &--play {
+    font-weight: normal;
+    min-width: auto !important;
+  }
+}
+
+
